@@ -8,6 +8,8 @@ export function handleBuy(event: Buy): void {
   buy.itemId = event.params._itemId;
   buy.amount = event.params._amount;
   buy.transactionHash = event.transaction.hash;
+  buy.blockNumber = event.block.number;
+  buy.timestamp = event.block.timestamp;
   buy.save();
 
   let litRoad = LitRoad.bind(event.address);
@@ -39,6 +41,8 @@ export function handleSell(event: Sell): void {
   sell.uri = event.params._uri;
   sell.price = event.params._price;
   sell.transactionHash = event.transaction.hash;
+  sell.blockNumber = event.block.number;
+  sell.timestamp = event.block.timestamp;
   sell.save();
 }
 
@@ -47,6 +51,8 @@ export function handleWithdraw(event: Withdraw): void {
   withdraw.to = event.params._to;
   withdraw.amount = event.params._amount;
   withdraw.transactionHash = event.transaction.hash;
+  withdraw.blockNumber = event.block.number;
+  withdraw.timestamp = event.block.timestamp;
   withdraw.save();
 
   let litRoad = LitRoad.bind(event.address);

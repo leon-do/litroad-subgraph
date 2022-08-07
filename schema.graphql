@@ -6,6 +6,8 @@ type Item @entity {
   uri: String!
   price: BigInt!
   transactionHash: Bytes!
+  blockNumber: BigInt!
+  timestamp: BigInt!
 }
 
 type Purchase @entity {
@@ -14,6 +16,8 @@ type Purchase @entity {
   buyer: Bytes!
   amount: BigInt!
   transactionHash: Bytes!
+  blockNumber: BigInt!
+  timestamp: BigInt!
 }
 
 type Withdrawal @entity {
@@ -21,6 +25,8 @@ type Withdrawal @entity {
   to: Bytes!
   amount: BigInt!
   transactionHash: Bytes!
+  blockNumber: BigInt!
+  timestamp: BigInt!
 }
 
 type Balance @entity {
