@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class SellEntity extends Entity {
+export class Item extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,18 +19,18 @@ export class SellEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save SellEntity entity without an ID");
+    assert(id != null, "Cannot save Item entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type SellEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Item must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("SellEntity", id.toString(), this);
+      store.set("Item", id.toString(), this);
     }
   }
 
-  static load(id: string): SellEntity | null {
-    return changetype<SellEntity | null>(store.get("SellEntity", id));
+  static load(id: string): Item | null {
+    return changetype<Item | null>(store.get("Item", id));
   }
 
   get id(): string {
@@ -97,7 +97,7 @@ export class SellEntity extends Entity {
   }
 }
 
-export class BuyEntity extends Entity {
+export class Purchase extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -105,18 +105,18 @@ export class BuyEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save BuyEntity entity without an ID");
+    assert(id != null, "Cannot save Purchase entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type BuyEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Purchase must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("BuyEntity", id.toString(), this);
+      store.set("Purchase", id.toString(), this);
     }
   }
 
-  static load(id: string): BuyEntity | null {
-    return changetype<BuyEntity | null>(store.get("BuyEntity", id));
+  static load(id: string): Purchase | null {
+    return changetype<Purchase | null>(store.get("Purchase", id));
   }
 
   get id(): string {
@@ -165,7 +165,7 @@ export class BuyEntity extends Entity {
   }
 }
 
-export class WithdrawEntity extends Entity {
+export class Withdrawal extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -173,18 +173,18 @@ export class WithdrawEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save WithdrawEntity entity without an ID");
+    assert(id != null, "Cannot save Withdrawal entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type WithdrawEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Withdrawal must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("WithdrawEntity", id.toString(), this);
+      store.set("Withdrawal", id.toString(), this);
     }
   }
 
-  static load(id: string): WithdrawEntity | null {
-    return changetype<WithdrawEntity | null>(store.get("WithdrawEntity", id));
+  static load(id: string): Withdrawal | null {
+    return changetype<Withdrawal | null>(store.get("Withdrawal", id));
   }
 
   get id(): string {
@@ -224,7 +224,7 @@ export class WithdrawEntity extends Entity {
   }
 }
 
-export class BalancesEntity extends Entity {
+export class Balance extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -232,18 +232,18 @@ export class BalancesEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save BalancesEntity entity without an ID");
+    assert(id != null, "Cannot save Balance entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type BalancesEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Balance must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("BalancesEntity", id.toString(), this);
+      store.set("Balance", id.toString(), this);
     }
   }
 
-  static load(id: string): BalancesEntity | null {
-    return changetype<BalancesEntity | null>(store.get("BalancesEntity", id));
+  static load(id: string): Balance | null {
+    return changetype<Balance | null>(store.get("Balance", id));
   }
 
   get id(): string {
