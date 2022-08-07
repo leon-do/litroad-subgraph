@@ -1,10 +1,11 @@
 type SellEntity @entity {
   id: ID!
-  itemId: BigInt! 
+  itemId: BigInt!
   seller: Bytes!
   investor: Bytes!
   uri: String!
   price: BigInt!
+  transactionHash: Bytes!
 }
 
 type BuyEntity @entity {
@@ -12,10 +13,18 @@ type BuyEntity @entity {
   itemId: BigInt!
   buyer: Bytes!
   amount: BigInt!
+  transactionHash: Bytes!
 }
 
 type WithdrawEntity @entity {
   id: ID!
   to: Bytes!
   amount: BigInt!
+  transactionHash: Bytes!
+}
+
+type BalancesEntity @entity {
+  id: ID!
+  address: Bytes!
+  balance: BigInt!
 }
