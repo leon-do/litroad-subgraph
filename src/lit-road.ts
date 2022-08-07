@@ -42,10 +42,11 @@ export function handleBuy(event: Buy): void {
 export function handleSell(event: Sell): void {
   let sell = new Item(event.params._itemId.toHexString());
   sell.itemId = event.params._itemId;
-  sell.seller = event.params._seller;
-  sell.investor = event.params._investor;
-  sell.uri = event.params._uri;
-  sell.price = event.params._price;
+  let litRoad = LitRoad.bind(event.address);
+  sell.seller = litRoad.items(event.params._itemId).value0;
+  sell.investor = litRoad.items(event.params._itemId).value1;
+  sell.uri = litRoad.items(event.params._itemId).value2;
+  sell.price = litRoad.items(event.params._itemId).value3;
   sell.transactionHash = event.transaction.hash;
   sell.blockNumber = event.block.number;
   sell.timestamp = event.block.timestamp;
