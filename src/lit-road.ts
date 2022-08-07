@@ -18,7 +18,7 @@ export function handleBuy(event: Buy): void {
     seller = new Balance(sellerAddress.toHexString());
     seller.address = sellerAddress;
   }
-  seller.balance = new BigInt(123); // litRoad.balances(sellerAddress);
+  seller.balance = litRoad.balances(sellerAddress);
   seller.save();
 
   let investorAddress = litRoad.items(event.params._itemId).value1;
