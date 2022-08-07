@@ -1,0 +1,21 @@
+type SellEntity @entity {
+  id: ID!
+  itemId: BigInt! 
+  seller: Bytes!
+  investor: Bytes!
+  uri: String!
+  price: BigInt!
+}
+
+type BuyEntity @entity {
+  id: ID!
+  itemId: BigInt!
+  buyer: Bytes!
+  amount: BigInt!
+}
+
+type WithdrawEntity @entity {
+  id: ID!
+  to: Bytes!
+  amount: BigInt!
+}

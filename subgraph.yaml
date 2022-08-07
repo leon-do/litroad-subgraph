@@ -1,0 +1,30 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: LitRoad
+    network: goerli
+    source:
+      address: "0x25ba45202257e16117db55571eabb236a07cae90"
+      startBlock: 7359540
+      abi: LitRoad
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Buy
+        - Sell
+        - Withdraw
+      abis:
+        - name: LitRoad
+          file: ./abis/LitRoad.json
+      eventHandlers:
+        - event: Buy(indexed uint256,indexed address,uint256)
+          handler: handleBuy
+        - event: Sell(indexed uint256,indexed address,indexed address,string,uint256)
+          handler: handleSell
+        - event: Withdraw(indexed address,uint256)
+          handler: handleWithdraw
+      file: ./src/lit-road.ts
