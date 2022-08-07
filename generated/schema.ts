@@ -113,6 +113,15 @@ export class Item extends Entity {
   set timestamp(value: BigInt) {
     this.set("timestamp", Value.fromBigInt(value));
   }
+
+  get sold(): BigInt {
+    let value = this.get("sold");
+    return value!.toBigInt();
+  }
+
+  set sold(value: BigInt) {
+    this.set("sold", Value.fromBigInt(value));
+  }
 }
 
 export class Purchase extends Entity {

@@ -12,6 +12,12 @@ export function handleBuy(event: Buy): void {
   buy.timestamp = event.block.timestamp;
   buy.save();
 
+  let item = Item.load(event.params._itemId.toHexString());
+  if (item != null) {
+    item.sold = item.sold.plus(BigInt.fromI32(1));
+    item.save();
+  }
+
   let litRoad = LitRoad.bind(event.address);
 
   let sellerAddress = litRoad.items(event.params._itemId).value0;
@@ -43,6 +49,7 @@ export function handleSell(event: Sell): void {
   sell.transactionHash = event.transaction.hash;
   sell.blockNumber = event.block.number;
   sell.timestamp = event.block.timestamp;
+  sell.sold = BigInt.fromI32(0);
   sell.save();
 }
 

@@ -8,6 +8,7 @@ type Item @entity {
   transactionHash: Bytes!
   blockNumber: BigInt!
   timestamp: BigInt!
+  sold: BigInt!
 }
 
 type Purchase @entity {
